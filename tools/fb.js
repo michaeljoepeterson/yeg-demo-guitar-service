@@ -9,7 +9,10 @@ const checkFbAuth = async(req,res,next) => {
             
             let user = await User.findByEmail(email);
             if(!user){
-                let userData = {email};
+                let userData = {
+                    email,
+                    level:0
+                };
                 if(name){
                     let splitName = name.split(' ');
                     userData.firstName = splitName[0];
