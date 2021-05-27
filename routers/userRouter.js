@@ -143,6 +143,7 @@ router.put('/:email',jwtAuth,levelAccess(0),async (req,res) => {
         const users = await User.findOneAndUpdate({ email }, {
             $set: user
         });
+        res.status(200);
         return res.json({
             code: 200,
             message:'updated user'
@@ -151,6 +152,7 @@ router.put('/:email',jwtAuth,levelAccess(0),async (req,res) => {
     }
     catch (err) {
         console.log('error ', err);
+        res.status(500);
         return res.json({
             code: 500,
             message: 'an error occured'
