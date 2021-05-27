@@ -147,7 +147,7 @@ router.put('/:email',jwtAuth,async (req,res) => {
         return res.json({
             code: 200,
             message:'updated user',
-            users
+            user:users
         });
         
     }
