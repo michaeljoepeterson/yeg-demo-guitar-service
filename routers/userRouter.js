@@ -135,7 +135,7 @@ router.put('/',async (req,res) => {
     
 });
 //update user
-router.put('/:email',jwtAuth,levelAccess(0),async (req,res) => {
+router.put('/:email',jwtAuth,async (req,res) => {
     const {email} = req.params;
     const {user} = req.body;
 
@@ -146,7 +146,8 @@ router.put('/:email',jwtAuth,levelAccess(0),async (req,res) => {
         res.status(200);
         return res.json({
             code: 200,
-            message:'updated user'
+            message:'updated user',
+            users
         });
         
     }
